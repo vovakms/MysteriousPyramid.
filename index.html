@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Треугольник четных чисел</title>
+<style media="screen">
+  body{
+    color: rgb(223, 196, 16);
+    background-color: rgb(74, 20, 94);
+  }
+  header{
+    display: flex;
+    background-color: rgb(128, 40, 196);
+    border: 4px solid rgb(242, 137, 13);
+    border-radius: 20px;
+  }
+  h1{ margin: 20px;}
+  wrapper{
+    display: flex;
+    width: 90vw;
+    height: 80vh;
+    padding: 10px;
+    margin: auto;
+  }
+  content{
+    width: 100%;
+    height: 90%;
+    padding: 20px;
+    background-color: rgb(128, 40, 196);
+    border-radius: 20px;
+    border: 4px solid rgb(242, 137, 13);
+    margin: 20px;
+  }
+  rightmenu{
+    width: 40vw;
+    height: 90%;
+    padding: 20px;
+    background-color: rgb(128, 40, 196);
+    border-radius: 20px;
+    border: 4px solid rgb(242, 137, 13);
+    margin: 20px;
+  }
+  footer{
+    display: flex;
+    background-color: rgb(128, 40, 196);
+    border: 4px solid rgb(242, 137, 13);
+    border-radius: 20px;
+  }
+  input{
+    width: 100px;
+    height: 50px;
+    background-color: rgb(206, 171, 219);
+    margin-left: 20px;
+    font-size: 2em;
+  }
+  .inp{
+    width: 100px;
+    border-radius: 10px;
+  }
+  .inp2{
+    width: 90%;
+    border-radius: 10px;
+  }
+  .btn{
+    width: 200px;
+    border: 4px solid rgb(242, 137, 13);
+    border-radius: 10px;
+  }
+
+  table {
+    width: 100%;
+
+    font-size: 2em;
+    border-radius: 10px;
+    border-spacing: 0;
+    text-align: center;
+  }
+  th {
+    background: #393ad6;
+    padding: 10px 20px;
+  }
+  th, td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+  }
+
+.scroll{
+  width: 90%;
+  margin: auto;
+  height: 60%;
+  overflow: scroll;
+  border: 4px solid rgb(242, 137, 13);
+  border-radius: 20px;
+}
+
+
+</style>
+
+  </head>
+  <body>
+
+    <header> <h1>Треугольник четных чисел</h1> </header>
+
+    <wrapper>
+      <content>
+        <h3>Количечтво строк треугольника</h3>
+        <input type="text" id="kolstr" class="inp" value="">
+        <input type="submit" id="btn-st1" class="btn" value="Заполнить" onclick="start();">
+        <h3>Результат</h3>
+              <div class="scroll">
+                <div class="scroll-table" id="rez">
+                  <table id="tabl">
+                    <thead> <tr><th>Num</th><th>List</th><th>Sum</th></tr></thead>
+
+                    <tbody id="tabl-tbody"></tbody>
+                  </table>
+
+                </div>
+              </div>
+      </content>
+      <rightmenu>
+        <h3>Номер строки</h3>
+        <input type="text" id="kolstr2" class="inp" value="">
+        <input type="submit" id="btn-2s" class="btn" value="Вычислить" onclick="st2();">
+        <h3>Список элементов в указанной строке</h3>
+        <input type="text" id="txt-out-list" class="inp2" value="">
+        <h3>Сумма элементов в указанной строке</h3>
+        <input type="text" id="txt-out-sum" class="inp2" value="">
+      </rightmenu>
+    </wrapper>
+
+    <footer> vovakms vooov  vov2kms  vooov.online vooov.ru vova2kms </footer>
+
+    <script type="text/javascript">
+
+      function start(){
+        var n = document.getElementById('kolstr').value;
+        calc(n);
+      }
+
+      function calc(n){
+              var list = '';
+              let table = document.querySelector('#tabl');
+              for (var i = 1; i <= n; i++) {
+              	let tr = document.createElement('tr');
+                for(var j=0; j<i; j++){
+                    list += String((i * (i-1)) + (j*2)) + ' ' ;
+                }
+             		tr.innerHTML = '<td>'+i+'</td><td>'+ list +'</td><td>'+ ((i*i*i) - i )+'</td>' ;
+              	tabl.appendChild(tr);
+                list = '';
+              }
+      }
+
+      function st2(){
+        var n = document.getElementById('kolstr2').value;
+        st3(n);
+      }
+      function st3(n){
+        var st = (n * (n-1))   ;
+        var strel = '';
+        for(var i=0; i<n; i++){
+            strel += ' ' + String(st + (i*2)) ;
+        }
+        document.getElementById('txt-out-list').value = strel ;
+        document.getElementById('txt-out-sum').value = n*n*n - n;
+      }
+
+    </script>
+
+  </body>
+</html>
